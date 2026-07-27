@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="/"
+        text="Volver"
+        color="dark"
+      ></ion-back-button>
+    </ion-buttons>
+    <div style="display: flex; align-items: center; gap: 0.5rem">
+      <ion-title>{{ lugar?.nombre }}</ion-title>
+      <ion-badge *ngIf="auth.isAdmin()" color="">ADMINISTRADOR</ion-badge>
+    </div>
+    <ion-buttons slot="end">
+      <ion-button (click)="agregarComentario()" fill="clear">
+        <ion-icon
+          class="icon-add icon-animate"
+          name="chatbubbles-outline"
+        ></ion-icon>
+      </ion-button>
+      <ion-button *ngIf="auth.isAdmin()" (click)="eliminarLugar()" fill="clear">
+        <ion-icon
+          class="icon-trash icon-animate"
+          name="trash-outline"
+        ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <img [src]="lugar?.imagen" />
+    <ion-card-header>
+      <ion-card-title>{{ lugar?.nombre }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content> </ion-card-content>
+    <ion-list>
+      <ion-item *ngFor="let comentario of lugar?.comentarios; let i = index">
+        <ion-label class="comment-text">
+          <div>{{ comentario.texto }}</div>
+          <div class="comment-meta">
+            <small>
+              {{ getComentarioAutorEmail(comentario) }} · {{
+              comentario.fechaCreacion | date: 'short' }}
+            </small>
+          </div>
+        </ion-label>
+        <ion-buttons slot="end" *ngIf="puedeModificarComentario(comentario)">
+          <ion-button
+            fill="clear"
+            size="small"
+            (click)="editarComentario(comentario)"
+          >
+            <ion-icon name="create-outline"></ion-icon>
+          </ion-button>
+          <ion-button
+            fill="clear"
+            size="small"
+            color="danger"
+            (click)="eliminarComentario(comentario)"
+          >
+            <ion-icon name="trash-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+  <!-- Botón flotante para modificar lugar -->
+  <ion-fab
+    vertical="bottom"
+    horizontal="end"
+    slot="fixed"
+    *ngIf="auth.isAdmin()"
+  >
+    <ion-fab-button (click)="modificarLugar()" color="danger">
+      <ion-icon
+        class="icon-create icon-animate"
+        name="create-outline"
+      ></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

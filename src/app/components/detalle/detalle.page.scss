@@ -1,0 +1,69 @@
+/* styles.css */
+
+/* Colores personalizados */
+.icon-add {
+  color: green;
+}
+
+.icon-trash {
+  color: red;
+}
+
+/* Animaciones */
+.icon-animate {
+  transition: transform 0.3s ease;
+}
+
+.icon-animate:hover {
+  transform: scale(1.2);
+}
+
+/* Justificar texto de comentarios */
+.comment-text {
+  text-align: justify;
+}
+
+/* Estilos para ion-card */
+ion-card {
+  text-align: center;
+  margin: 10px;
+}
+
+ion-card img {
+  width: 100%;
+  height: auto;
+  max-width: 500px;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}
+
+ion-card-header {
+  text-align: center;
+  margin-top: 10px;
+}
+
+ion-card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+ion-list {
+  padding: 0;
+}
+
+ion-item {
+  --min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+ion-button {
+  --padding-start: 0;
+  --padding-end: 0;
+}

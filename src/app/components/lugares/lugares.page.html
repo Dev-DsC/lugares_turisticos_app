@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <div style="display: flex; align-items: center; gap: 0.5rem">
+      <ion-title style="color: rgb(10, 126, 0); font-size: 1.2em; margin: 0">
+        <ion-icon
+          name="location-outline"
+          style="font-size: 1.2em; margin-right: 0.3em"
+        ></ion-icon>
+        Lugares
+      </ion-title>
+      <ion-badge *ngIf="auth.isAdmin()" color="">ADMINISTRADOR</ion-badge>
+    </div>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()" color="danger" aria-label="Cerrar sesión">
+        <ion-icon name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item
+      *ngFor="let lugar of lugares"
+      (click)="verDetalle(lugar)"
+      style="margin-bottom: 0.5em"
+    >
+      <ion-avatar slot="start" style="width: 60px; height: 60px">
+        <img [src]="lugar.imagen" />
+      </ion-avatar>
+      <ion-label style="font-size: 1.1em"> {{ lugar.nombre }} </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-fab
+    vertical="bottom"
+    horizontal="end"
+    slot="fixed"
+    *ngIf="auth.isAdmin()"
+  >
+    <ion-fab-button
+      (click)="agregarLugar()"
+      style="font-size: 1.2em"
+      color="success"
+    >
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
