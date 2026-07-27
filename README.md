@@ -170,7 +170,7 @@ Este proyecto se encuentra en una etapa funcional de desarrollo, con un backend 
 
 ## 👨‍💻 Sobre el desarrollador
 
-Proyecto desarrollado por Daniel David Castillo, con enfoque en el aprendizaje y la construcción de aplicaciones móviles modernas, APIs REST y soluciones full-stack con tecnologías actuales.
+Proyecto desarrollado por Dalton Cornejo, con enfoque en el aprendizaje y la construcción de aplicaciones móviles modernas, APIs REST y soluciones full-stack con tecnologías actuales.
 
 ## 🎯 Objetivo profesional
 
